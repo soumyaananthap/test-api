@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 
-var todo = new mongoose.Schema({
-    id: {
-        type: Number
-    },
+var Todo = new mongoose.Schema({
+    // id: {
+    //     type: Number
+    // },
     name: {
         type: String
     },
@@ -16,6 +16,9 @@ var todo = new mongoose.Schema({
     dueDate: {
         type: Date
     }
+    // done: {
+    //     type: Boolean
+    // }
 },
     {
        collection: 'todos'
@@ -23,4 +26,4 @@ var todo = new mongoose.Schema({
 );
 
 
-module.exports = mongoose.model('Todo', todo)
+module.exports = mongoose.model('Todo', Todo)
