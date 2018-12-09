@@ -13,11 +13,11 @@ var usersRouter = require('./routes/users');
   
 
 
-mongoose.connect('mongodb://localhost/my_database');
+mongoose.connect('mongodb://localhost/Todo');
 
 var express = require("express");
 var app = express();
-var port = 3000;
+var port = 3010;
  
 app.get("/", (req, res) => {
  res.send("Hello World");
@@ -36,6 +36,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyparser.json());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -58,10 +59,7 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-// module.exports = {
-//   DB: 'mongodb://localhost:27017/todos',
-//   APP_PORT: 3000
-// }
+
 
 
 
